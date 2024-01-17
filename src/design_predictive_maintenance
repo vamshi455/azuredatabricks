@@ -1,0 +1,28 @@
+Medallion Architecture
+Source --> Landing --> Staging --> Raw --> ML Models.        (Training Models)
+                                       --> Dimension Models. (Curation/Transformations)
+                                       --> Visualizations    (Power BI etc)
+
+
+Design Steps:
+
+1. Create sample data - as per the schema which is needed for predictive maintenance
+2. Design folder structure - Blob
+    aveva 
+        pi
+          yyyy-mm-dd hh-mm-ss
+            pi.csv
+3. Create delta live tables to source data from source folder - landing folder
+4. Load - Landing
+5. Load - Staging
+6. Load - Raw
+7. Train ML Model - notebooks
+8. Deploy the Model into prod
+
+
+Topics to learn in Non-Working Sessions ()
+1. Unity Catalog - Databricks
+2. Delta Live Tables 
+3. Auto Loader
+4. Python Programming - basics/advanced
+5. ML Algorithms
