@@ -1,13 +1,27 @@
 # Databricks notebook source
-SELECT * FROM cloud_files
+dbutils.fs.ls('dbfs:/mnt/predictiveanalytics/2024-01-16_19-46-31/')
 
 # COMMAND ----------
 
 # MAGIC %sql
 # MAGIC CREATE STREAMING LIVE TABLE customers
-# MAGIC COMMENT "The customers buying finished products, ingested from /databricks-datasets."
+# MAGIC COMMENT "The customers buying finished products, ingested from adls mount folder."
 # MAGIC TBLPROPERTIES ("myCompanyPipeline.quality" = "mapping")
-# MAGIC AS SELECT * FROM cloud_files("/databricks-datasets/retail-org/customers/", "csv");
+# MAGIC AS SELECT * FROM cloud_files("dbfs:/mnt/predictiveanalytics/2024-01-16_19-46-31/", "csv");
+# MAGIC
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC
+# MAGIC select * from LIVE.customers
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC
+# MAGIC select * from LIVE.customers
+# MAGIC
 
 # COMMAND ----------
 
